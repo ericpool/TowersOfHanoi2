@@ -25,6 +25,7 @@ public class Tower
             this.top = this.top.getNextDisk();
             diskToReturn.setNextDisk(null);
         }
+        count--;
         return diskToReturn;
     }
 
@@ -33,19 +34,21 @@ public class Tower
         if(this.top == null)
         {
             this.top = d;
-            return true;
+
         }
         else if(d.getSize() < this.top.getSize())
         {
             d.setNextDisk(this.top);
             this.top = d;
-            return true;
+
         }
         else
         {
             //illegal move
             return false;
         }
+        this.count++;
+        return true;
     }
 
     public void display()
@@ -56,5 +59,10 @@ public class Tower
             currDisk.display();
             currDisk = currDisk.getNextDisk();
         }
+    }
+
+
+    public int getCount() {
+        return count;
     }
 }

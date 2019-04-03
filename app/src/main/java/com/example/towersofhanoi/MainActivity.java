@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -65,7 +66,14 @@ public class MainActivity extends AppCompatActivity
             this.placeholderVG.removeViewAt(0);
             towerVG.addView(temp, 0);
             this.shouldSelectSource = true;
+
+
         }
+
+
+
+
+
     }
 
     public void tower0ButtonPressed(View v)
@@ -101,6 +109,10 @@ public class MainActivity extends AppCompatActivity
         else
         {
             this.selectDestination(this.tower2, this.tower2VG);
+        }
+        if(tower2.getCount() == 3)
+        {
+            Toast.makeText(this, "Winner!!!", Toast.LENGTH_SHORT).show();
         }
     }
 }
